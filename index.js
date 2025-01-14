@@ -14,13 +14,13 @@ const path = require("path");
 //para desarrollo nos permitirá conectar backend con frontend de vite.
 const allowedOrigins =
   process.env.NODE_ENV === "production"
-    ? ["https://coral-app-7pwjv.ondigitalocean.app"] // Dominios permitidos en producción
+    ? ["https://seahorse-app-b2bks.ondigitalocean.app"] // Dominios permitidos en producción
     : [
         "https://192.168.1.5:5173",
         "https://localhost:5173",
         "https://localhost:3000",
         "https://localhost:4173",
-        "https://informemensual.netlify.app",
+        "https://seahorse-app-b2bks.ondigitalocean.app",
       ]; // Dominios permitidos en desarrollo (tanto en la red como localmente)
 
 // Configurar CORS
