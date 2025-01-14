@@ -19,7 +19,7 @@ const options = {
 //para desarrollo nos permitirá conectar backend con frontend de vite.
 const allowedOrigins =
   process.env.NODE_ENV === "production"
-    ? ["https://informemensual.netlify.app"] // Dominios permitidos en producción
+    ? ["https://coral-app-7pwjv.ondigitalocean.app"] // Dominios permitidos en producción
     : [
         "https://192.168.1.5:5173",
         "https://localhost:5173",
