@@ -27,19 +27,17 @@ const allowedOrigins =
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Si la solicitud no tiene origen en producción, rechazarla
-      if (!origin && process.env.NODE_ENV === "production") {
-        return callback(
-          new Error("Solicitudes sin origen no permitidas en producción"),
-          false
-        );
+      // Permitir solicitudes sin origen en cualquier entorno
+      if (!origin) {
+        callback(null, true); // Permitir solicitudes sin origen
+        return;
       }
 
-      // Permitir solicitudes desde dominios permitidos en producción o localhost en desarrollo
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
+      // Verificar si el origen está en la lista de permitidos
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true); // Permitir el origen
       } else {
-        callback(new Error("Origen no permitido por CORS"), false);
+        callback(new Error("Origen no permitido por CORS"), false); // Rechazar el origen
       }
     },
     credentials: true, // Permitir cookies y credenciales
