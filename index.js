@@ -10,11 +10,6 @@ const fs = require("fs");
 const https = require("https");
 const path = require("path");
 
-const options = {
-  key: fs.readFileSync("key.pem"),
-  cert: fs.readFileSync("cert.pem"),
-};
-
 // Configuración de CORS dependiendo del entorno
 //para desarrollo nos permitirá conectar backend con frontend de vite.
 const allowedOrigins =
@@ -68,6 +63,6 @@ app.get("*", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-https.createServer(options, app).listen(PORT, () => {
-  console.log(`Servidor HTTPS corriendo en https://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
